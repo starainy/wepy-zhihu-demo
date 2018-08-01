@@ -1,0 +1,17 @@
+<template>
+  <view>{{ name }}</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Information extends wepy.page {
+  data = {
+    name: '消息'
+  }
+}
+</script>
+
+<style lang="less" scoped>
+
+</style>

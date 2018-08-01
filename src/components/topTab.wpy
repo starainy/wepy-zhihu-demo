@@ -1,0 +1,51 @@
+<template>
+  <view class='btn-area'>
+    <view bindtap="tapclick(1)" :class="{'navigatorActiveClass': navigatorActive == 1}">首页</view>
+    <view bindtap="tapclick(2)" :class="{'navigatorActiveClass': navigatorActive == 2}">关注</view>
+    <view bindtap="tapclick(3)" :class="{'navigatorActiveClass': navigatorActive == 3}">热榜</view>
+    <!-- <navigator url="index" open-type="switchTab" >首页</navigator>
+    <navigator url="index" open-type="switchTab" bindtap="tapclick(2)">关注</navigator>
+    <navigator url="index" open-type="switchTab" bindtap="tapclick(3)">热榜</navigator> -->
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class topTab extends wepy.component {
+  data = {
+    navigatorActive: 1
+  }
+  methods = {
+    tapclick(index) {
+      console.log(index + 'click!!!')
+      this.navigatorActive = index
+      switch (index) {
+        case 1:
+          this.$redirect('index')
+          break
+        case 2:
+          this.$redirect('information')
+          break
+        case 3:
+          this.$redirect('my')
+          break
+        default:
+          break
+      }
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.btn-area {
+  display: flex;
+  .navigatorActiveClass {
+    color: red;
+    border-bottom: 1rpx;
+  }
+  .navigatorClass {
+    flex: 1;
+  }
+}
+</style>
